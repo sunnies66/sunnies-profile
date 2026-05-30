@@ -1,52 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register UCP</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+
+<title>EVRP UCP Registration</title>
+
+<link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 <body>
 
-<div class="card">
+<div class="container">
 
-    <h2>Register UCP</h2>
+    <div class="card">
 
-    <form action="process_register.php" method="POST">
+        <h1>EVRP UCP Register</h1>
 
-        <input
-            type="text"
-            name="ucp"
-            placeholder="UCP Name"
-            required
+        <form
+            id="registerForm"
+            action="process_register.php"
+            method="POST"
         >
 
-        <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-        >
+            <input
+                type="text"
+                name="ucp"
+                id="ucp"
+                placeholder="UCP Name"
+                required
+            >
 
-        <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-        >
+            <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                required
+            >
 
-        <input
-            type="password"
-            name="confirm"
-            placeholder="Confirm Password"
-            required
-        >
+            <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                required
+            >
 
-        <button type="submit">
-            Register
-        </button>
+            <input
+                type="password"
+                name="confirm"
+                id="confirm"
+                placeholder="Confirm Password"
+                required
+            >
 
-    </form>
+            <button type="submit">
+                REGISTER
+            </button>
+
+        </form>
+
+    </div>
 
 </div>
+
+<script src="assets/js/register.js"></script>
 
 </body>
 </html>
