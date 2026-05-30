@@ -1,46 +1,69 @@
 <?php
+
 session_start();
 
-if (!isset($_SESSION['register_success'])) {
+if(
+    !isset($_SESSION['pin']) ||
+    !isset($_SESSION['ucp'])
+){
     header("Location: register.php");
     exit;
 }
 
-$ucp = $_SESSION['ucp'];
 $pin = $_SESSION['pin'];
+$ucp = $_SESSION['ucp'];
 
-unset($_SESSION['register_success']);
+session_destroy();
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Registration Success</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+
+<title>Success</title>
+
+<link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 <body>
 
-<div class="card">
+<div class="container">
 
-    <h2>Registration Successful</h2>
+    <div class="card">
 
-    <p>UCP Account:</p>
-    <h3><?= htmlspecialchars($ucp) ?></h3>
+        <h1>Registration Successful</h1>
 
-    <p>Your Verification PIN:</p>
-    <h1><?= $pin ?></h1>
+        <p>
+            UCP:
+            <b><?=htmlspecialchars($ucp)?></b>
+        </p>
 
-    <p>
-        Join Discord server and use:
-    </p>
+        <br>
 
-    <code>/verify <?= $pin ?></code>
+        <p>
+            Verification PIN:
+        </p>
 
-    <br><br>
+        <h2>
+            <?= $pin ?>
+        </h2>
 
-    <a href="login.php">
-        <button>Login</button>
-    </a>
+        <br>
+
+        <p>
+            Join Discord Server
+        </p>
+
+        <p>
+            Use:
+        </p>
+
+        <code>
+            /verify <?= $pin ?>
+        </code>
+
+    </div>
 
 </div>
 
